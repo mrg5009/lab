@@ -1,6 +1,6 @@
 import paramiko 
 from  requests import request
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 def get_docker_status():
     
@@ -22,3 +22,6 @@ def get_docker_status():
         docker_ps_output = f"Error: {str(e)}"
 
     return render(request, 'docker_status/status.html',{"docker_ps_output" : docker_ps_output})
+
+def home_redirect(request):
+    return redirect('docker_status')

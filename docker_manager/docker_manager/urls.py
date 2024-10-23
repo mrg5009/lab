@@ -17,8 +17,10 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path ,include
+from docker_status.views import home_redirect
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("docker/", include('docker_status.urls')),
+    path("docker/", include('docker_status.urls')), # صفحه نمایش وضعیت داکر
+    path("",home_redirect) # ریدایرکت به صفحه وضعیت داکر
 ]
