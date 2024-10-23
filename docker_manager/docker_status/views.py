@@ -1,6 +1,6 @@
 import paramiko 
 from  requests import request
-from django.shortcuts import rander
+from django.shortcuts import render
 
 def get_docker_status():
     
@@ -21,4 +21,4 @@ def get_docker_status():
     except Exception as e:
         docker_ps_output = f"Error: {str(e)}"
 
-    return rander(request, 'docker_status/status.html',{"docker_ps_output" : docker_ps_output})
+    return render(request, 'docker_status/status.html',{"docker_ps_output" : docker_ps_output})
